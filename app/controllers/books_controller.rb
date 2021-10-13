@@ -1,14 +1,18 @@
 class BooksController < ApplicationController
+  def homes
+
+  end
+  
   def index
   end
-
+  
   def show
   end
   
   def create
     list = List.new(list_params)
     list.save
-    redirect_to '/top'
+    redirect_to '/books'
   end
 
   def edit

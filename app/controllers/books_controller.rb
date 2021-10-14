@@ -1,26 +1,24 @@
 class BooksController < ApplicationController
-  def homes
-
-  end
-  
   def index
+    @book = Book.new
+    @book = Book.all
   end
-  
+
   def show
   end
-  
+
   def create
-    list = List.new(list_params)
-    list.save
+    @book = Book.new(book_params)
+    @book.save
     redirect_to '/books'
   end
 
   def edit
   end
-  
+
   private
-  def list_params
-    params.require(:list).permit(:title, :body)
+  def book_params
+    params.require(:book).permit(:title, :body)
   end
-  
+
 end

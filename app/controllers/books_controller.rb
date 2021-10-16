@@ -8,10 +8,11 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     if @book.save
       flash[:notice] = "successfully created"
-      redirect_to book_path(@book.id)
+      redirect_to book_path(@book)
     else
       @books = Book.all
       flash.now[:error] = @book.errors.full_messages
+      flash[:notice] = "error"
       render :index
     end
   end
@@ -30,6 +31,7 @@ class BooksController < ApplicationController
        redirect_to book_path(params[:id])
      else
       flash.now[:error] = @book.errors.full_messages
+      flash[:notice] = "error"
       render :edit
      end
   end

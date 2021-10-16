@@ -1,6 +1,9 @@
 <% if flash.now[:error] %>
   <p><%= flash.now[:error] %></p>
 <% end %>
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
 
     <h1>Editing Book</h1>
     <!-- form_with部分 -->
